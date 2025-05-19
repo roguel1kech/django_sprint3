@@ -4,9 +4,11 @@
 {% endblock %}
 {% block content %}
   <h1 class="mb-5">Лента записей</h1>
-  {% for post in post_list %}
-    <article class="mb-5">  
-      {% include "includes/post_card.html" %}
-    </article>   
+  {% for post in posts %}
+    <article class="mb-5">
+      <h2><a href="{% url 'blog:post_detail' post.id %}">{{ post.title }}</a></h2>
+      <p>Категория: {{ post.category.title }} ({{ post.category.slug }})</p>
+      <p>Локация: {{ post.location.name|default:"Планета Земля" }}</p>
+    </article>
   {% endfor %}
 {% endblock %}
