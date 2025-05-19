@@ -13,7 +13,10 @@ class Category(models.Model):
     )
     slug = models.SlugField(
         'Идентификатор', unique=True,
-        help_text='Идентификатор страницы для URL; разрешены символы латиницы, цифры, дефис и подчёркивание.'
+        help_text=(
+            'Идентификатор страницы для URL; разрешены символы латиницы, '
+            'цифры, дефис и подчёркивание.'
+        )
     )
     is_published = models.BooleanField(
         'Опубликовано', default=True,
@@ -59,7 +62,11 @@ class Post(models.Model):
     )
     pub_date = models.DateTimeField(
         'Дата и время публикации',
-        help_text='Если установить дату и время в будущем — можно делать отложенные публикации.')
+        help_text=(
+            'Если установить дату и время в будущем — можно делать отложенные '
+            'публикации.'
+        )
+    )
     created_at = models.DateTimeField(
         'Добавлено', auto_now_add=True
     )
